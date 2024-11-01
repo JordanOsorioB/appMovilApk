@@ -1,0 +1,49 @@
+/* Fondo azul para el contenedor principal, ocupa todo el fondo */
+.login-background {
+  background: linear-gradient(135deg, #2e4053, #74b9ff);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contenedor centrado y estilo móvil */
+.mobile-container {
+  max-width: 400px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 0; /* Centrado sin espacio extra hacia abajo */
+}
+
+/* Logo de tamaño ajustado */
+.logo-mobile {
+  width: 200px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Estilo para los enlaces de crear usuario y recuperar contraseña */
+.link-style {
+  color: #0b1861;
+  cursor: pointer;
+  font-size: 0.9em;
+  text-decoration: underline;
+}
+
+.slogan {
+  font-size: 0.85em;
+  color: #383838;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Estilo de error */
+.error-message {
+  color: rgb(0, 0, 0);
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+}

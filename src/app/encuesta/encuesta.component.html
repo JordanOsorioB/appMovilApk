@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="menu">
+      <button mat-button [matMenuTriggerFor]="menu">Menú</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="logout()">Cerrar Sesión</button>
+      </mat-menu>
+    </div>
+  
+    <!-- Mostrar nombre del usuario logueado -->
+    <div *ngIf="usuarioLogueado" class="user-info">
+      <h2>Bienvenido, {{ usuarioLogueado?.nombre }}</h2>
+    </div>
+  
+    <!-- Encuesta de satisfacción -->
+    <div class="survey-container">
+      <h3>Encuesta de satisfacción</h3>
+      <hr>
+      <h6>¿Cómo se siente con la atención recibida?</h6>
+      <div class="emoji-container">
+        <img src="assets/enojado.png" alt="Enojado" (click)="selectEmoji(1)" 
+             [class.selected-emoji]="selectedEmojiValue === 1" class="emoji">
+        <img src="assets/triste.png" alt="Triste" (click)="selectEmoji(2)" 
+             [class.selected-emoji]="selectedEmojiValue === 2" class="emoji">
+        <img src="assets/confuso.png" alt="Confuso" (click)="selectEmoji(3)" 
+             [class.selected-emoji]="selectedEmojiValue === 3" class="emoji">
+        <img src="assets/feliz.png" alt="Contento" (click)="selectEmoji(4)" 
+             [class.selected-emoji]="selectedEmojiValue === 4" class="emoji">
+        <img src="assets/feliz2.png" alt="Feliz" (click)="selectEmoji(5)" 
+             [class.selected-emoji]="selectedEmojiValue === 5" class="emoji">
+      </div>
+  
+      <hr><br>
+  
+      <!-- Opciones para continuar o finalizar la encuesta -->
+      <div *ngIf="!showAdditionalQuestions && selectedEmojiValue !== null">
+        <button (click)="continuarEncuesta()" class="submit-button">Contestar encuesta completa</button>
+        <button (click)="finalizarEncuesta()" class="submit-button">Finalizar</button>
+      </div>
+  
+      <!-- Preguntas adicionales -->
+      <div *ngIf="showAdditionalQuestions">
+        <h6>Por favor, responde las siguientes preguntas:</h6>
+  
+        <div *ngFor="let pregunta of preguntas; let i = index">
+          <h6>{{ pregunta.pregunta }}</h6>
+          <mat-radio-group (change)="selectOption(i, $event.value)">
+            <mat-radio-button *ngFor="let alternativa of [pregunta.alternativaUno, pregunta.alternativaDos, pregunta.alternativaTres]" 
+                              [value]="alternativa">
+              {{ alternativa }}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+  
+        <hr>
+  
+        <h6>Comentarios adicionales (opcional)</h6>
+        <div class="message-container">
+          <textarea placeholder="Escribe tus comentarios aquí..." (input)="updateMessage($event)"></textarea>
+        </div>
+  
+        <button (click)="finalizarEncuesta()" class="submit-button">Enviar Encuesta</button>
+      </div>
+    </div>
+  </div>
+  

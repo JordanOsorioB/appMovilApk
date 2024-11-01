@@ -1,0 +1,51 @@
+<div class="container-fluid vh-100 d-flex flex-column justify-content-center align-items-center login-background">
+  <div class="container p-4 shadow rounded mobile-container">
+    <div class="text-center mt-4">
+      <img src="assets/2.png" alt="Logo" class="logo-mobile"/>
+      <p class="slogan mt-2">Organiza tus opiniones, optimiza tus decisiones.</p>
+    </div>
+    <div class="text-center mb-4">
+      <h2>BIENVENIDO</h2>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      
+      <div class="form-group mb-3">
+        <mat-form-field class="w-100">
+          <mat-label>Usuario</mat-label>
+          <input matInput placeholder="Ingrese su usuario" formControlName="usuario" />
+          <mat-error *ngIf="loginForm.get('usuario')?.invalid && loginForm.get('usuario')?.touched">
+            Por favor ingrese un usuario válido.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group mb-3">
+        <mat-form-field class="w-100">
+          <mat-label>Contraseña</mat-label>
+          <input matInput type="password" placeholder="Ingrese su contraseña" formControlName="password" />
+          <mat-error *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+            La contraseña debe contener 8 dígitos.
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+
+      <div class="d-flex justify-content-between mb-3">
+        <span (click)="crearUsuario()" class="link-style">Crear usuario</span><br>
+        <span (click)="recuperar()" class="link-style">Recuperar contraseña</span><br>
+        <span (click)="goToQrLogin()"class="link-style">Ingresar con QR</span>
+
+      </div>
+      <br>
+      <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid" class="w-100">
+        Ingresar
+      </button>
+    </form>
+    
+
+   
+  </div>
+</div>

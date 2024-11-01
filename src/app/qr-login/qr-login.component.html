@@ -1,0 +1,12 @@
+<div class="scanner-container">
+  <h2>Escanea el código QR para iniciar sesión</h2>
+  <div class="scanner-box">
+    <button class="scan-button" (click)="startScan()">Escanear QR</button>
+    <button class="cancel-button" *ngIf="isScanning" (click)="cancelScan()">Cancelar escaneo</button>
+  </div>
+</div>
+
+<!-- Panel inferior -->
+<div class="bottom-panel">
+  <button class="nav-button" (click)="goToLogin()">Volver al Login</button>
+</div>
