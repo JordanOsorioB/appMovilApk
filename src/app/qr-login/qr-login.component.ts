@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
-import { HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-qr-login',
@@ -15,6 +14,7 @@ export class QrLoginComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
   async startScan() {
+    this.isScanning = true; // Marcar que el escaneo ha comenzado
     await BarcodeScanner.checkPermission({ force: true });
     BarcodeScanner.hideBackground();
 
@@ -24,13 +24,13 @@ export class QrLoginComponent {
       this.handleQrCode(result.content);
     } else {
       alert("No se encontró ningún QR.");
+      this.isScanning = false; // Volver a false si no se encontró un código
     }
   }
 
   async handleQrCode(qrContent: string) {
     try {
       await this.authService.loginWithQr(qrContent);
-
       const usuarioLogueado = this.authService.getUsuarioLogueado();
       if (usuarioLogueado) {
         this.router.navigate(['/encuesta']);
@@ -43,12 +43,16 @@ export class QrLoginComponent {
       } else {
         alert('Autenticación fallida: Error desconocido');
       }
+    } finally {
+      this.isScanning = false; // Finalizar el escaneo
     }
   }
 
   cancelScan() {
     BarcodeScanner.stopScan();
+    this.isScanning = false; // Volver a false al cancelar el escaneo
   }
+
   goToLogin() {
     this.cancelScan();
     this.router.navigate(['/login']);

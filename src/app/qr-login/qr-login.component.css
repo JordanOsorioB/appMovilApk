@@ -1,216 +1,148 @@
 /* Estilos de la pantalla completa */
 body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #00b4db, #0083b0); /* Fondo degradado */
-  }
-  
-  /* Contenedor principal */
-  .scanner-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    color: #fff;
-    padding: 20px;
-    width: 90%;
-    max-width: 400px;
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo transparente */
-    border-radius: 10px;
-  }
-  
-  /* Título */
-  .scanner-container h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  /* Caja de escaneo (puede usarse como guía visual) */
-  .scanner-box {
-    width: 80%;
-    height: 80%;
-    max-width: 250px;
-    max-height: 250px;
-    border: 4px dashed #fff;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  /* Botón de escaneo */
-  .scan-button {
-    padding: 10px 20px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #0083b0;
-    background-color: #fff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .scan-button:hover {
-    background-color: #e0e0e0;
-  }
-  .scanner-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 70vh;
-    background-color: #f0f4f8; 
-    color: #333;
-  
-    h2 {
-      margin-bottom: 20px;
-      color: #333;
-    }
-  
-    .scanner-box {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 200px;
-      height: 200px;
-      border: 2px dashed #333;
-      border-radius: 10px;
-      margin-bottom: 30px;
-    }
-  
-    .scan-button {
-      padding: 10px 20px;
-      font-size: 16px;
-      color: #fff;
-      background-color: #007bff; 
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-  
-      &:hover {
-        background-color: #0056b3;
-      }
-    }
-  }
-  
-  .bottom-panel {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    background-color: #007bff;
-    padding: 10px 0;
-  
-    .nav-button {
-      padding: 10px 20px;
-      font-size: 16px;
-      color: #fff;
-      background-color: #0056b3;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-  
-      &:hover {
-        background-color: #003b82;
-      }
-    }
-  }
-  
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #00b4db, #0083b0); /* Fondo degradado */
+}
 
-  .scanner-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 70vh;
-    background-color: #f0f4f8; 
-    color: #333;
-  
-    h2 {
-      margin-bottom: 20px;
-      color: #333;
-    }
-  
-    .scanner-box {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 200px;
-      height: 200px;
-      border: 2px dashed #333;
-      border-radius: 10px;
-      margin-bottom: 30px;
-    }
-  
-    .scan-button {
-      padding: 10px 20px;
-      font-size: 16px;
-      color: #fff;
-      background-color: #007bff; 
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-  
-      &:hover {
-        background-color: #0056b3;
-      }
-    }
-  }
-  
-  .bottom-panel {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    background-color: #007bff;
-    padding: 10px 0;
-  
-    .nav-button {
-      padding: 10px 20px;
-      font-size: 16px;
-      color: #fff;
-      background-color: #0056b3;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-  
-      &:hover {
-        background-color: #003b82;
-      }
-    }
-  }
-  .scanner-container {
+/* Contenedor principal */
+.scanner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: #333;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  background-color: #f0f4f8;
+  border-radius: 10px;
+  position: relative;
+  z-index: 2; /* Asegura que esté por encima del fondo */
+}
 
-  
-    .cancel-button {
-      margin-top: 15px;
-      padding: 10px 20px;
-      font-size: 16px;
-      color: #fff;
-      background-color: #dc3545; 
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-  
-      &:hover {
-        background-color: #c82333;
-      }
-    }
-  }
-  
+/* Título */
+.scanner-container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Caja de escaneo */
+.scanner-box {
+  width: 200px;
+  height: 200px;
+  border: 2px dashed #333;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
+  padding: 20px;
+  z-index: 3;
+}
+
+/* Botón de escaneo */
+.scan-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  z-index: 3;
+}
+
+.scan-button:hover {
+  background-color: #0056b3;
+}
+
+/* Panel inferior */
+.bottom-panel {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: #007bff;
+  padding: 10px 0;
+  z-index: 3; /* Asegura que esté por encima del fondo */
+}
+
+.nav-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #0056b3;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  z-index: 3;
+}
+
+.nav-button:hover {
+  background-color: #003b82;
+}
+
+/* Overlay de escaneo */
+.scanning-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0); /* Ajustar transparencia */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 4; /* Asegura que esté por encima de todo */
+}
+
+/* Texto de escaneo y botón de cancelar */
+.scanning-overlay p {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.cancel-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #dc3545;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cancel-button:hover {
+  background-color: #c82333;
+}
+
+/* Fondo con menos opacidad y sin desenfoque para nitidez */
+.scanner-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/2.png'); /* Ruta absoluta desde la raíz */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.7; /* Reducir opacidad para más claridad */
+  z-index: 1; /* Asegura que el fondo esté por detrás de todo */
+}

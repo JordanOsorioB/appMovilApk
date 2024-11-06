@@ -33,13 +33,12 @@ import { RecuperarComponent } from './recuperar/recuperar.component';
 import { CrearusuarioComponent } from './crearusuario/crearusuario.component'; 
 import { EncuestaComponent } from './encuesta/encuesta.component';
 import { LoginComponent } from './login/login.component';
+import { SplashComponent } from './splash/splash.component';
 
 import { environment } from '../environments/environment'; 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-
-
-
+import { QrLoginComponent } from './qr-login/qr-login.component';
 
 
 
@@ -50,6 +49,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     EncuestaComponent,
     RecuperarComponent,
     CrearusuarioComponent,
+    QrLoginComponent,
 
   ],
   imports: [
@@ -63,6 +63,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     MatFormFieldModule,
     BrowserModule,
     AppRoutingModule,
+    SplashComponent,
     BrowserAnimationsModule,
     MatInputModule,
     MatButtonModule,

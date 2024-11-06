@@ -6,15 +6,15 @@ import { CrearusuarioComponent } from './crearusuario/crearusuario.component';
 import { RecuperarComponent } from './recuperar/recuperar.component';
 import { EncuestaComponent } from './encuesta/encuesta.component';
 import { QrLoginComponent } from './qr-login/qr-login.component';
+import { SplashComponent } from './splash/splash.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', component: SplashComponent },
   { path: 'login', component: LoginComponent },
   { path: 'crear', component: CrearusuarioComponent },
   { path: 'encuesta', component: EncuestaComponent },
   { path: 'recuperar', component: RecuperarComponent },
   { path: 'qr-login', component: QrLoginComponent },
-
   { path: '**', redirectTo: '/login' }
 ];
 

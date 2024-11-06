@@ -1,0 +1,13 @@
+.splash-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffffff; /* Fondo del splash */
+  }
+  
+  img {
+    width: 150px; /* Ajusta el tamaño de la imagen */
+    height: auto;
+  }
+  
